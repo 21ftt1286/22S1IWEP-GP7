@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>week 7 eportfolio part 2</title>
+
+	<style type="text/css">
+		/*ORGANIZE YOUR CSS IN THE FOLLOWING ORDER
+
+		1. ELEMENT SELECTOR
+		2. ID SELECTOR
+		3. CLASS SELECTOR
+		4. DESCENDENT SELECTOR 
+		5. CHILD SELECTOR 
+		6. SIBLING SELECTOR 
+		7. ATTRIBUTE SELECTOR
+		8. PSEUDO CLASS SELECTOR
+
+		FAILURE TO COMPLY WILL RESULTS IN MARK DEDUCTION*/
+
+		
+		#container{
+			display: flex;
+			flex-wrap: wrap;
+			margin: auto;
+			width: 600px;
+			/*border-collapse: collapse;*/
+			}
+
+	
+		.userinput{
+		  	width: 380px;
+			padding: 5px;			 
+			/*display: inline-block;*/
+			box-sizing: border-box;
+		}
+
+		.userinput2{
+			/*text-align: center;*/
+			padding: 5px;
+			display: flex;
+			box-sizing: border-box;
+			flex-grow: 1;
+		}
+
+		.userinput3{
+			flex-grow: 1;
+		}
+
+		.userinput4{
+			padding: 5px;
+			flex: 100%;
+			box-sizing: border-box;
+			text-align: center;
+		}
+
+
+		
+	</style>
+
+</head>
+<body>
+
+<div id="container">
+
+
+	<div class="userinput">
+	<label for ="fullname">Fullname</label></div>
+	<div class="userinput2"><input class="userinput3" type="text" name="fullname" id="fullname" pattern=".{1,30}" size="20"></div>
+
+
+
+
+	<div class="userinput">
+	<label for ="Email">Email</label></div>
+	<div class="userinput2"><input class="userinput3" type="email" name="Email" id="Email" size="20"></div>
+
+
+
+	<div class="userinput">
+	<label for ="Date">Date you can start</label></div>
+	<div class="userinput2"><input class="userinput3" type="date" name="Date" id="Date"></div>
+
+
+
+	<div class="userinput">
+	<label for ="morning">Morning shift preference</label></div>
+	<div class="userinput2"><input class="userinput3" type="time" name="morning" id="morning" ></div>
+
+
+	<div class="userinput">
+	<label for ="evening">Evening shift perference</label></div>
+	<div class="userinput2"><input class="userinput3" type="time" name="evening" id="evening"></div>
+
+
+	<div class="userinput">
+	<label for ="hours">How many hours you can work? In multiple of 3</label></div>
+	<div class="userinput2"><input class="userinput3" type="number" name="hours" id="hours" step="3" min="3" max="9"></div>
+
+
+
+	<div class="userinput">
+	<label for ="distance">Distance you willing to commute to volunteer center?</label></div>
+	<div class="userinput2">1 <input type="range" name="distance" id="distance" value="3" min="1" max="15"> 15</div>
+
+
+
+	<div class="userinput">
+	<label for ="currency">You currency perference for payment?</label></div>
+	<div class="userinput2"><input type="radio" name="currency" id="pound" value="Pound">
+		<label for="pound">&#163;</label>
+		<input type="radio" name="currency" id="yen" value="Yen">
+		<label for="yen">&#165;</label>
+		<input type="radio" name="currency" id="euro"value="Euro">
+		<label for="euro">&#128;</label>
+	</div>
+
+
+	<div class="userinput4">
+	<textarea id="address" name="Address" rows="6" cols="40" placeholder="Type your home address"></textarea>
+	</div>
+
+	
+	<div class="userinput4">
+	<s>You will be given daily meals</s>
+	</div>
+
+
+	<div class="userinput4">
+	<input type="checkbox" name="agree" id="agree1" value="agree" checked disabled><label for="agree1">I agree to all terms and conditions</label>
+	</div>
+
+	<div class="userinput4">
+	<label for="robot1">Prove you are not robot: 10 &#60; 20?</label><input type="checkbox" name="robot" id="robot1" value="robot">
+	</div>
+
+
+	<div class="userinput4">
+	<button name="submit_button" type="submit" value="Volunteer">
+		Volunteer Now!
+	</button>
+	</div>
+
+
+	<div class="userinput4">
+	<button name="reset_button" type="reset" value="Startover">
+		Start over
+	</button>
+	</div>
+
+
+	<div class="userinput4">
+	For more informaton, visit MOH <a href="https://www.moh.gov.bn/Pages/Home.aspx" target="_blank">website</a>
+	</div>
+
+</form>
+</div>
+
+</body>
+</html>
