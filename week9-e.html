@@ -1,0 +1,203 @@
+<html !DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+
+  <style type="text/css">
+
+/*
+    THIS TASK REQUIRE YOU TO USE CSS GRID AND THEIR RELATED PROPERTIES
+  */
+
+    /*ORGANIZE YOUR CSS IN THE FOLLOWING ORDER, IF APPLICABLE
+
+    1. ELEMENT SELECTOR /
+    2. ID SELECTOR
+    3. CLASS SELECTOR /
+    4. DESCENDENT SELECTOR
+    5. CHILD SELECTOR
+    6. SIBLING SELECTOR
+    7. ATTRIBUTE SELECTOR
+    8. PSEUDO CLASS SELECTOR
+
+    FAILURE TO COMPLY WILL RESULTS IN MARK DEDUCTION*/
+
+     body{
+    display: block;
+    }
+    
+    @media screen and (min-width: 800px){ /*desktop*/
+
+    .main{
+    width: 90%;
+    grid-gap: 2em;
+    display: grid;
+    margin: auto auto;  
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .submain{/*all*/
+    display: grid;
+    font-size: 1em;
+    }
+
+    .submain>div:nth-child(1) {/*(author)*/
+    height: 35px;
+    display: grid;
+    background-color: lightseagreen;
+    text-align: center;
+    align-items: center;
+    justify-content: center; 
+    }
+
+    .submain>div:nth-child(2) { /*all the quote*/
+    display: grid;
+    height: 125px;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: skyblue;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .submain:nth-child(1){ grid-area: 1 / 2 / 2 / 5 } /*on the right(mark twain)*/
+
+    .submain:nth-child(6){ grid-area: 2 / 2 / 3 / 5 } /*dr. seuss*/
+
+    .submain:nth-child(7){ grid-area: 3 / 2 / 4 / 5 } /*chinese proverb*/
+
+    .submain:nth-child(8){ grid-area: 4 / 2 / 5 / 5 } /*martin luther king*/
+    }
+
+
+
+    @media screen and (max-width: 800px){ /*tablet*/
+   
+    .main{
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    grid-gap: 2em;
+    display: grid;
+    margin: auto auto;
+    }
+
+    .submain{
+    display: grid;
+    text-align: center;
+    font-size: 1.25em;
+    }
+
+    .submain>div:nth-child(1){
+      /*height: 30px;*/
+      background-color: lightseagreen; 
+    }
+
+    .submain>div:nth-child(2){
+      background-color: skyblue;
+    }
+
+    .submain:nth-child(1){ grid-area: 1 / 1 / 2 / 3 } /*mark twain*/
+
+    .submain:nth-child(2){ grid-area: 2 / 1 / 3 / 3 } /*mason cooley*/
+
+    .submain:nth-child(7){ grid-area: 5 / 1 / 6 / 3 } /*chinese proverb*/
+
+    .submain:nth-child(8){ grid-area: 6 / 1 / 7 / 3 } /*martin luther king*/
+  }
+
+
+
+    @media screen and (max-width: 480px){ /*mobile*/
+    
+    .main{
+    width: 90%;
+    margin: 0 auto;
+    grid-gap: 0;
+    display: grid;
+    grid-template-columns: 100%;
+    }
+
+    .submain{
+    display: grid;
+    font-size: 1.5em;
+    text-align: center;
+    }
+
+    .submain>div:nth-child(1){ 
+    grid-row: 2em;
+    background-color: lightseagreen;
+    }
+
+    .submain>div:nth-child(2){
+    grid-row: auto;
+    background-color: skyblue;
+    }
+
+    .submain:nth-child(3){grid-area: 3 / 1 / 4 / 2 } /*albert*/
+
+    .submain:nth-child(4){grid-area: 4 / 1 / 5 / 2 } /*elon*/
+
+    .submain:nth-child(5){grid-area: 5 / 1 / 6 / 2 } /*jim ryun*/
+
+    .submain:nth-child(6){grid-area: 6 / 1 / 7 / 2 } /*dr. seuss*/
+    }
+
+  </style>
+</head>
+<body>
+  <!-- INSTRUCTIONS
+    YOU ARE NOT ALLOWED TO CHANGE ANY PART OF THE HTLM CODES (SUCH AS ADDING ID attributes or additional values to the classes atributes.) 
+  
+    YOUR TASK IS TO WRITE THE CSS CODE TO ACHIEVE THE REQUIRED OUTPUT-->
+<div class="main">
+  
+<div class="submain spotlight">
+  <div>Mark Twain</div>
+  <div>The man who does not read books has no advantage over the one who cannot read them.</div>
+</div>
+<div class="submain col">
+  <div>Mason Cooley</div>
+  <div>Procrastination makes easy things hard and hard things harder.</div>
+</div>
+<div class="submain col">
+  <div>Albert Einstein</div>
+  <div>
+A person who never made a mistake never tried anything new.</div>
+</div>
+<div class="submain col">
+  <div>Elon Musk</div>
+  <div>
+I think it’s possible to ordinary people to choose to be extraordinary.</div>
+</div>
+
+<div class="submain col">
+  <div>Jim Ryun</div>
+  <div>
+Motivation is what gets you started. Habit is what keeps you going.</div>
+</div>
+
+<div class="submain spotlight">
+  <div>Dr. Seuss</div>
+  <div>
+The more that you read, the more things you will know, the more that you learn, the more places you’ll go.</div>
+</div>
+
+<div class="submain spotlight">
+  <div>Chinese Proverb</div>
+  <div>
+He who asks a question is a fool for five minutes; he who does not ask a question remains a fool forever.</div>
+</div>
+
+<div class="submain spotlight">
+  <div>Martin Luther king</div>
+  <div>
+If you can’t fly, then run. If you can’t run, then walk. If you can’t walk, then crawl. But by all means, keep moving</div>
+</div>
+
+
+</div>
+</body>
+</html>
