@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>wk10-e-a</title>
+  <style>
+    #container{display: grid; width: 70%;margin: 0 auto;grid-template-columns:2fr 2fr 2fr 1fr ;grid-auto-rows: 3em;}
+   
+    /*no additional css is required*/
+
+
+  </style>
+</head>
+<!-- do not insert additional id attributes to any element -->
+<!-- do not remove any inline styles -->
+<body>
+  <form id="myform" action="" onsubmit="return false">
+  <div id="container">
+<h3 style="grid-column: 1/span 4">College Admission Calculator</h3>
+<div style="grid-column: 1/span 4;">Please enter the required information</div>
+<div>Are you over 25?</div>
+<div>
+<select name="" id="adult" onchange="change()">
+  <option value="0">select</option>
+  <option value="under25">Under 25</option>
+  <option value="over25">Over 25</option>
+</select>
+</div>
+<div style="grid-column:auto/span 2"></div>
+
+
+<div></div><div>subject/exam</div><div>subject grades</div><div>points</div>
+
+  <div class="hideall matured">English Language or Equivalent</div>
+  <div class="hideall matured">
+    <input onclick="chickEng()" type="radio" name="english" id="gcse">GCE O Level
+    <input onclick="chickEng()" type="radio" name="english" id="igcse">IGCE O level
+    <input onclick="chickEng()" type="radio" name="english" id="ielts" >IELTS
+</div>
+<div class="hideall matured" onclick="alltogether()">
+    <select name="engolevel" id="engolevel">
+    <option value="0">select</option>
+      <option value="A1">A1</option>
+      <option value="A2">A2</option>
+      <option value="B3">B3</option>
+      <option value="B4">B4</option>
+      <option value="C5">C5</option>
+      <option value="C6">C6</option>
+      <option value="F">F</option>
+    </select>
+     <select name="engigcse" id="engigcse">
+    <option value="0">select</option>
+      <option value="A*">A*</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+      <option value="E">E</option>
+      <option value="F">F</option>
+    </select>
+        <select onclick="alltogether2()"name="engielts" id="engielts">
+      <option value="0">select</option>
+    <option value="9.0">9.0</option>
+      <option value="8.5">8.5</option>
+      <option value="8.0">8.0</option>
+      <option value="7.5">7.5</option>
+      <option value="7.0">7.0</option>
+      <option value="6.5">6.5</option>
+      <option value="6.0">6.0</option>
+    </select>
+</div>
+<div class="hideall matured" id="engpoints" ></div>
+
+
+  <div class="hideall matured">Mathematics</div>
+  <div class="hideall matured">
+    <select name="maths" id="maths" >
+      <option value="0">select</option>
+      <option value="mathematics D">mathematics D</option>
+      <option value="additional mathematics">additional mathematics</option>
+  </select>
+</div>
+
+<div class="hideall matured">
+    <select onclick="alltogether()" name="mathsgrade" id="mathsgrade">
+      <option value="0">select</option>
+      <option value="A1">A1</option>
+      <option value="A2">A2</option>
+      <option value="B3">B3</option>
+      <option value="B4">B4</option>
+      <option value="C5">C5</option>
+      <option value="C6">C6</option>
+      <option value="F">F</option>
+    </select>
+</div>
+
+<div class="hideall matured" id="mathspoints"></div>
+
+<div class="hideall">Relevant subject #1</div>
+<div class="hideall">
+    <select name="relevant1" id="relevant1" onclick="checkmathsd()">
+      <option value="0">select</option>
+      <option value="computer studies">computer studies</option>
+      <option value="computer sciences">computer sciences</option>
+      <option value="mathematics D">mathematics D</option>
+      <option value="additional mathematics">additional mathematics</option>
+    </select>
+</div>
+
+<div class="hideall">
+    <select onclick="alltogether()" name="relevant1grade" id="relevant1grade">
+      <option value="0">select</option>
+      <option value="A1">A1</option>
+      <option value="A2">A2</option>
+      <option value="B3">B3</option>
+      <option value="B4">B4</option>
+      <option value="C5">C5</option>
+      <option value="C6">C6</option>
+        <option value="F">F</option>
+    </select>
+</div>
+
+<div class="hideall" id="relevant1points"></div>
+
+<div class="hideall matured"><button id="btnresult" style="align-self: center;" onclick="ali2()" >Click to show eligibility status</button></div><div class="hideall matured" style="grid-column:2/span 2" id="status"></div>
+<div class="hideall matured" id="totalpoints"></div>
+<div style="grid-column:1/span 3"></div><div><button onclick="myFunction()">reset form</button></div>
+  
+</div>
+</form>
+<script>  
+
+    const mGrade = document.getElementById("mathsgrade")
+    const status = document.getElementById("status")
+    const mathsPoints = document.getElementById("mathspoints");
+    const relevantpoints = document.getElementById("relevant1points");
+    const rGrade = document.getElementById("relevant1grade");
+    const total = document.getElementById("totalpoints");
+    const engpoints = document.getElementById("engpoints")
+    var rp1 = parseInt(0);
+    var rp2 = parseInt(0); 
+
+// Choosing Under 25:
+
+var hide1 = document.getElementsByClassName("hideall");
+for (var i = 0; i < hide1.length; i++) {
+          hide1[i].style.display = "none";
+        }
+
+  function change(){
+  var adult = document.getElementById("adult").value;
+  var matured = document.getElementsByClassName("matured");
+  var hide = document.getElementsByClassName("hideall");
+
+  if (adult == "under25"){
+    for (var i = 0; i < hide.length; i++){
+      hide[i].style.display = "block";
+    }
+   
+  }
+  if(adult == "0"){
+    for (var i = 0; i < hide1.length; i++){
+      hide1[i].style.display = "none";
+    }
+  }
+
+
+  if(adult == "over25"){
+    for (var i = 0; i < hide.length; i++){
+      hide[i].style.display = "none";
+    }
+    for (var i = 0; i < matured.length; i++){
+      matured[i].style.display = "block";
+    }
+  }
+  if(adult == "0"){
+    for (var i = 0; i < hide1.length; i++){
+      hide1[i].style.display = "none";
+    }
+  }
+}
+
+var engolevel = document.getElementById("engolevel");
+var engigcse = document.getElementById("engigcse");
+var engielts = document.getElementById("engielts");
+
+engolevel.style.display = "none";
+engigcse.style.display = "none";
+engielts.style.display = "none";
+
+var gcse1 = document.getElementById("gcse")
+var engpoints1 = document.getElementById("engpoints");
+var maths = document.getElementById("maths");
+var mathsgrade = document.getElementById("mathsgrade");
+var relevant1 = document.getElementById("relevant1");
+var relevant1grade = document.getElementById("relevant1grade");
+
+var mathspoints = document.getElementById("mathspoints");
+var releventpoints = document.getElementById("relevant1points");
+var btnresult = document.getElementById("btnresult");
+var igcse1 = document.getElementById("igcse")
+var ielts = document.getElementById("ielts")
+
+
+maths.disabled = true;
+mathsgrade.disabled = true;
+relevant1.disabled = true;
+relevant1grade.disabled = true;
+btnresult.disabled = true;
+
+//Choosing English Language Exam Type:
+
+function chickEng(){
+
+  if (gcse1.checked){
+    engolevel.style.display="block"
+    engigcse.style.display="none"
+    engielts.style.display="none"
+  }
+    
+  if (igcse1.checked){
+    engolevel.style.display="none"
+    engigcse.style.display="block"
+    engielts.style.display="none"
+    relevant1.style.display="block"
+    relevant1grade.style.display="block"
+  }
+  if (ielts.checked){
+    engolevel.style.display="none"
+    engigcse.style.display="none"
+    engielts.style.display="block"
+    relevant1.style.display="block"
+    relevant1grade.style.display="block"
+  }
+
+  maths.disabled = false;
+  mathsgrade.disabled = false;
+  relevant1.disabled = false;
+  relevant1grade.disabled = false;
+  btnresult.disabled = false;
+
+};
+
+ //checked maths(page4)
+function checkmathsd(){
+  document.getElementById("relevant1").options[3].disabled=false;
+  var mathsvalue=document.getElementById("maths").value;
+  if (mathsvalue=="mathematics D"){
+    document.getElementById("relevant1").options[3].disabled=true;
+  }    
+}
+
+
+function alltogether(){
+
+  //checked comp sci(page4)
+  document.getElementById("relevant1grade").options[5].disabled=false;
+  document.getElementById("relevant1grade").options[6].disabled=false;
+  document.getElementById("relevant1grade").options[7].disabled=false;
+  var rel1value=document.getElementById("relevant1").value;
+  if (rel1value=="computer sciences"){
+    document.getElementById("relevant1grade").options[5].disabled=true;
+    document.getElementById("relevant1grade").options[6].disabled=true;
+    document.getElementById("relevant1grade").options[7].disabled=true;
+  }   
+
+  // points for english
+
+      const engolevel = document.getElementById("engolevel");
+
+      if(engolevel.value =="A1")  {
+        engpoints.innerHTML= "1";
+        engpoints.style.color="black";
+        rp1 = 1;
+      }
+      if (engolevel.value =="A2")  {
+        engpoints.innerHTML= "2";
+        engpoints.style.color="black";
+        rp1=2;
+      }
+      if (engolevel.value =="B3")  {
+        engpoints.innerHTML= "3";
+        engpoints.style.color="black";
+        rp1=3;
+      }
+      if (engolevel.value =="B4")  {
+        engpoints.innerHTML= "4";
+        engpoints.style.color="black";
+        rp1 = 4;
+      }
+      if (engolevel.value =="C5")  {
+        engpoints.innerHTML= "5";
+        engpoints.style.color="black";
+        rp1=5;
+      }
+      if (engolevel.value =="C6")  {
+        engpoints.innerHTML= "6";
+        engpoints.style.color="black";
+        rp1 =6;
+        total.innerHTML = " ";
+        status.innerHTML= " ";
+      }
+      if (engolevel.value =="F")  {
+        engpoints.innerHTML= "7";
+        engpoints.style.color="black";
+        rp1=7;
+      }
+
+      // points for mathematics
+
+      if(mGrade.value =="A1")  {
+        mathsPoints.innerHTML= "1";
+        mathsPoints.style.color="black";
+        rp2 = 1;
+      }
+      if (mGrade.value =="A2")  {
+        mathsPoints.innerHTML= "2";
+        mathsPoints.style.color="black";
+        rp2=2;
+      }
+      if (mGrade.value =="B3")  {
+        mathsPoints.innerHTML= "3";
+        mathsPoints.style.color="black";
+        rp2=3;
+      }
+      if (mGrade.value =="B4")  {
+        mathsPoints.innerHTML= "4";
+        mathsPoints.style.color="black";
+        rp2 = 4;
+      }
+      if (mGrade.value =="C5")  {
+        mathsPoints.innerHTML= "5";
+        mathsPoints.style.color="black";
+        rp2=5;
+      }
+      if (mGrade.value =="C6")  {
+        mathsPoints.innerHTML= "6";
+        mathsPoints.style.color="black";
+        rp2 =6;
+        total.innerHTML = " ";
+        status.innerHTML= " ";
+      }
+      if (mGrade.value =="F")  {
+        mathsPoints.innerHTML= "7";
+        mathsPoints.style.color="black";
+        rp2=7;
+      }
+
+      // points for relevant subjects
+
+  if (rGrade.value =="A1")  {
+        relevantpoints.innerHTML= "1";
+        relevantpoints.style.color="black";
+        rp3=1;
+      }
+       if (rGrade.value =="A2")  {
+        relevantpoints.innerHTML= "2";
+        relevantpoints.style.color="black";
+        rp3=2;
+      }
+       if (rGrade.value =="B3")  {
+        relevantpoints.innerHTML= "3";
+        relevantpoints.style.color="black";
+        rp3=3;
+      }
+       if (rGrade.value =="B4")  {
+        relevantpoints.innerHTML= "4";
+        relevantpoints.style.color="black";
+        rp3=4;
+      }
+       if (rGrade.value =="C5")  {
+        relevantpoints.innerHTML= "5";
+        relevantpoints.style.color="black";
+        rp3=5;
+      }
+       if (rGrade.value =="C6")  {
+        relevantpoints.innerHTML= "6";
+        relevantpoints.style.color="black";
+        rp3=6;
+      }
+       if (rGrade.value =="F")  {
+        relevantpoints.innerHTML= "7";
+        relevantpoints.style.color="black";
+        rp3=7;
+      }
+};
+function alltogether2(){
+      const engielts = document.getElementById("engielts");
+      if(engielts.value =="9.0")  {
+        engpoints.innerHTML= "9.0";
+        engpoints.style.color="black";
+        rp1 = 1;
+        if (engielts.value =="8.5")  {
+        engpoints.innerHTML= "8.5";
+        engpoints.style.color="black";
+        rp1 = 2;
+      }
+      if (engielts.value =="8.0")  {
+        engpoints.innerHTML= "8.0";
+        engpoints.style.color="black";
+        rp1=3;
+      }
+      if (engielts.value =="7.5")  {
+        engpoints.innerHTML= "7.5";
+        engpoints.style.color="black";
+        rp1 = 4;
+      }
+      if (engielts.value =="7.0")  {
+        engpoints.innerHTML= "7.0";
+        engpoints.style.color="black";
+        rp1=5;
+      }
+      if (engielts.value =="6.5")  {
+        engpoints.innerHTML= "6.5";
+        engpoints.style.color="black";
+        rp1 =6;
+        total.innerHTML = " ";
+        status.innerHTML= " ";
+      }
+      if (engielts.value =="6.0")  {
+        engpoints.innerHTML= "";
+        engpoints.style.color="black";
+        rp1=7;
+      }
+      }
+      };
+function ali2(){
+  var realtotal = rp1 + rp2 + rp3;
+  total.innerHTML= realtotal;
+total.style.color="black";
+
+ var adult = document.getElementById("adult")
+  if(adult.value == "under25"){if (realtotal<18) {
+        status.innerHTML= "Eligible";
+        status.style.color="blue"; 
+      }
+      else{
+        status.innerHTML= "Not Eligible";
+        status.style.color="red";         
+      }
+    }
+  if(adult.value == "over25"){if (realtotal<12) {
+        status.innerHTML= "Eligible";
+        status.style.color="blue"; 
+      }
+      else{
+        status.innerHTML= "Not Eligible";
+        status.style.color="red"; 
+      }
+    }
+};
+
+function myFunction() {
+  document.getElementById("myform").reset();
+  var hide1 = document.getElementsByClassName("hideall");
+for (var i = 0; i < hide1.length; i++) {
+          hide1[i].style.display = "none";
+        }
+}
+
+ //write all the required functions here
+ //indentation is important
+ //also neatness
+
+ //repitition is not in the syllabus. but students may use loop since  they learnt this concept in ITP
+//  you are expected to use since covered in the classes:
+// function with parameters
+// getElementsByName
+// getElementsById
+
+// additionally
+// getElementsByClassName
+
+
+</script>
+</body>
+</html>
