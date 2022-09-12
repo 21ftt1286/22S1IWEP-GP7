@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Kitchen</title>
+	<!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="css/kitchencss.css">
+    <script src="js/kitchenjs.js"></script>
+
+
+</head>
+<body onload="getMenu()">
+
+    <div class="menu">
+	<div class="heading">
+            <h1>YUMMY FOODIE</h1>
+            <h3>&mdash; KITCHEN &mdash; </h3>
+    </div>
+    <!-- FOOD --> 
+    <div class="categories">Food</div>
+    <div class="food-items">
+            
+            <div class="details">
+                <div class="details-sub">
+                    <h5 id="tablenumber">Table 01</h5>
+                    <h5 id="timer"></h5>
+                </div>
+                <form>
+                
+                <label for="food1" id="food1"></label>   
+                <input onclick="button()" type="checkbox" name="food1" value="FOOD"> 
+                <br>
+
+                <label for="food2" id="food2"></label>   
+                <input onclick="button()" type="checkbox" name="food2" value="FOOD"> 
+                <br>
+
+                <label for="food3" id="food3"></label>   
+                <input onclick="button()" type="checkbox" name="food3" value="FOOD"> 
+                <br>
+
+                <label for="food4" id="food4"></label>   
+                <input onclick="button()" type="checkbox" name="food4" value="FOOD"> 
+                
+
+                </form>
+                <!-- <p id="notify"></p> -->
+            </div>
+        </div>
+
+    
+<br>
+    <div class="categories">Drink</div>
+    <div class="drink-items">
+            
+            <div class="details">
+                <div class="details-sub">
+                    <h5 id="tablenumber">Table 01</h5>
+                    <h5 id="timer2"></h5>
+                </div>
+                <form>
+                
+                <label for="drink1" id="drink1"></label>   
+                <input onclick="buttondrink()" type="checkbox" name="drink1" value="DRINK"> 
+                <br>
+
+                <label for="drink2" id="drink2"></label>   
+                <input onclick="buttondrink()" type="checkbox" name="drink2" value="DRINK"> 
+                <br>
+
+                <label for="drink3" id="drink3"></label>   
+                <input onclick="buttondrink()" type="checkbox" name="drink3" value="DRINK"> 
+                <br>
+
+                <label for="drink4" id="drink4"></label>   
+                <input onclick="buttondrink()" type="checkbox" name="drink4" value="DRINK"> 
+                <br>
+
+                </form>
+                <!-- <p id="notify2"></p> -->
+            </div>
+        </div>
+
+    
+    </div>
+</body>
+</html>

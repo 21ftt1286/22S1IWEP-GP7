@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Order System</title>
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="css/menustyle.css">
+
+
+
+</head>
+<body>
+    <div class="menu">
+        <div class="heading">
+            <h1>YUMMY FOODIE</h1>
+            <h3>&mdash; MENU &mdash; </h3>
+        </div>
+
+       <!--  ADD TO CART -->
+       <div class="cart-modal-overlay">
+    <div class="cart-modal">
+      <i id="close-btn" class="fas fa-times"></i>
+        <h1 class="cart-is-empty">Cart is empty</h1>
+      
+        <div class="product-rows">
+        </div>
+        <div class="total">
+          <h1 class="cart-total">TOTAL</h1>
+            <span class="total-price">$0</span>
+
+            <button class="reset-btn" onclick="reset()">RESET</button>
+            <br>
+              <button class="purchase-btn">Pay With Cash</button>
+              <button class="purchase2-btn">Pay With Card</button>
+        </div>
+      </div>
+</div>
+      
+<!--   end of cart modal -->
+  <div class="cart-btn">
+    <i id="cart" class="fas fa-shopping-cart"></i>
+      <span class ="cart-quantity">0</span>
+  </div>
+
+        <!--  FOOD NUMBER 1 -->
+        <div class="food-items">
+            <img class= "product-image" src="images/mee-goreng.jpg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5 class = "product-name" id="food1">Mee Goreng</h5>
+                    <span class="product-price"> $3.50 </span>
+                </div>
+                <p>Feel the taste of the Malaysian Cuisine, its one of our my finest menu.</p>
+                <button class="add-to-cart" onclick="menu1()">Add To Cart</button>
+        </div>
+                
+            </div>
+
+       <!--  FOOD NUMBER 2 -->
+        <div class="food-items">
+            <img class= "product-image2" src="images/nasi-katok.jpg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5 class = "product-name" id="food2">Nasi Katok</h5>
+                    <span class="product-price">$1.50</span>
+                </div>
+                <p>This is everyone's favorite, the one and only Bruneian cuisine. It is a simple dish menu with fried chicken along with a spicy sauce. Highly recommended menu.</p>
+                <button class="add-to-cart" onclick="menu2()">Add To Cart</button>
+            </div>
+        </div>
+
+        <!--  FOOD NUMBER 3 -->
+        <div class="food-items">
+            <img class= "product-image" src="images/nasi-ayam-penyet.jpeg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5 class = "product-name" id="food3">Nasi Ayam Penyet</h5>
+                    <span class="product-price"> $4.90 </span>
+                </div>
+                <p>The delicious fried chicken with rice, the well-known Indonesian cuisine. The famous Ayam Penyet where all asian countries serve on almost all restaurant.</p>
+                <button class="add-to-cart" onclick="menu3()">Add To Cart</button>
+                
+            </div>
+        </div>
+
+        <!--  FOOD NUMBER 4 -->
+        <div class="food-items">
+            <img class= "product-image" src="images/butter-chicken.jpg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5 class = "product-name" id="food4">Butter Chicken</h5>
+                    <span class="product-price"> $4.20 </span>
+                </div>
+                <p>The finest Indian cuisine ever made, butter chicken with some good spices. It is made with a curry leaves spices, paprika, a thick sauce and roasted chicken.</p>
+                <button class="add-to-cart" onclick="menu4()">Add To Cart</button>
+                
+            </div>
+        </div>
+
+        <!-- DRINK NUMBER 1 -->
+        <div class="food-items">
+            <img class= "product-image" src="images/orange-juice.jpg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5 class = "product-name" id="drink1">Orange Juice</h5>
+                    <span class="product-price"> $1.80 </span>
+                </div>
+                <p>Refreshen your day with our freshly-made Orange juice.</p>
+               <button class="add-to-cart" onclick="menu5()">Add To Cart</button>
+
+            </div>
+        </div>
+
+        <!-- DRINK NUMBER 2 -->
+        <div class="food-items">
+            <img class= "product-image" src="images/cocktail-juice.jpg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5 class = "product-name" id="drink2">Cocktail Juice</h5>
+                    <span class="product-price"> $2.20 </span>
+                </div>
+                <p>Freshly made cocktail juice with various of fruit. It is also consider our healthy drink.</p>
+                <button class="add-to-cart" onclick="menu6()">Add To Cart</button>
+            </div>
+        </div>
+
+        <!-- DRINK NUMBER 3 -->
+         <div class="food-items">
+            <img class= "product-image" src="images/ice-milo.jpg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5 class = "product-name" id="drink3">Ice Milo</h5>
+                    <span class="product-price"> $1.20 </span>
+                </div>
+                <p>The Ice Milo, this our best selling drink, it has been served and ordered by our customers almost everyday.</p>
+                <button class="add-to-cart" onclick="menu7()">Add To Cart</button>
+
+            </div>
+        </div>
+
+        <!-- DRINK NUMBER 4 -->
+         <div class="food-items">
+            <img class= "product-image" src="images/watermelon-juice.jpg">
+            <div class="details">
+                <div class="details-sub">
+                    <h5 class = "product-name" id="drink4">Watermelon Juice</h5>
+                    <span class="product-price"> $2.20 </span>
+                </div>
+                <p>Another drink that can enlighten your day and very refreshing, it is a good drink for those who are having illness problem.</p>
+                <button class="add-to-cart" onclick="menu8()">Add To Cart</button>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="select">
+        
+    </div>
+
+    <!-- FOOTER SECTION -->
+          <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <h3>Yummy<span>Foodie</span></h3>
+
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Address</span>
+                    Abdul Razak Complex Block A, No. 12-13 1st Floor BE4119, 
+                    Jln Gadong</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+673 876 3456</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="">yummyfoodie@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About Us</span>
+                <strong>We provide food menus for our generous customers. Customers can just simply order and explore our food and drinks.</strong>
+            </p>
+        </div>
+    </footer>
+<!--     <script type="text/javascript">
+       // CUSTOMER/US
+
+        var customer = prompt("Hey, Welcome to Yummy Foodie");
+
+        var customer2 = +localStorage.getItem("customer2");
+
+        var tableno = Math.floor(Math.random() * 10) +1;
+
+        alert('Welcome, ' + customer + '! Table: ' + tableno + ' ')
+
+        
+
+    </script> -->
+
+      <script  src="js/customer.js"></script>
+
+</body>
+</html>
